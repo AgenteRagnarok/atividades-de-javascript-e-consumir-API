@@ -1,0 +1,42 @@
+{
+  "usuarios": [
+    {
+      "id": "123",
+      "nome": "Vinicius",
+      "idade": 21,
+      "email": "vini@gmail.com"
+    },
+    {
+      "id": "124",
+      "nome": "eduardo",
+      "idade": 50,
+      "email": "edu02@gmail.com"
+    },
+    {
+      "id": "e0fb",
+      "nome": "Vinicius",
+      "idade": 21,
+      "email": "vini@gmail.com"
+    },
+    {
+      "id": "d354",
+      "nome": "Luiz",
+      "idade": 17,
+      "email": "estouradogmail.com"
+    }
+  ],
+  "Carros": [
+    {
+      "id": "132",
+      "placa": " XYZ-1234",
+      "cor": "PRATA",
+      "modelo": "UNO WAY"
+    },
+    {
+      "id": "133",
+      "placa": " ABC-1234",
+      "cor": "PRATA",
+      "modelo": "HB20S"
+    }
+  ]
+}
