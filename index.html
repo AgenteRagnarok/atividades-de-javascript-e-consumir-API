@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Revisão</title>
+</head>
+
+<body>
+    <h3>Escrever um algoritmo que leia o nome de um aluno e as notas das três provas que ele obteve no semestre. No
+        final
+        informar o nome do aluno e a sua média (aritmética).
+    </h3>
+
+    <div class="formulario">
+        <label for="nome">Nome do Aluno</label>
+        <input type="text" id="nome" />
+
+        <label for="nota1">Nota 1</label>
+        <input type="number" id="nota1" />
+
+        <label for="nota2">Nota 2</label>
+        <input type="number" id="nota2" />
+
+        <label for="nota3">Nota 3</label>
+        <input type="number" id="nota3" />
+
+        <button id="btnCalcular" type="button">
+            Calcular Média
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta de CEP</title>
+</head>
+<body>
+<h1>Consulta de CEP</h1>
+<form id="cepForm">
+    <label for="cepInput">CEP:</label>
+    <input type="text" id="cepInput" maxlength="9">
+    <button type="submit">Consultar</button>
+</form>
+<div id="endereco"></div>
+
+<script>
+    document.getElementById('cepForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const cep = document.getElementById('cepInput').value.replace(/\D/g, '');
+
+    if (cep.length !== 8) {
+        alert('Por favor, insira um CEP válido.');
+        return;
+    }
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('CEP não encontrado');
+        }
+        return response.json();
+        })
+        .then(data => {
+        const endereco = `
+            <p>CEP: ${data.cep}</p>
+            <p>Logradouro: ${data.logradouro}</p>
+            <p>Complemento: ${data.complemento}</p>
+            <p>Bairro: ${data.bairro}</p>
+            <p>Cidade: ${data.localidade}</p>
+            <p>Estado: ${data.uf}</p>
+        `;
+        document.getElementById('endereco').innerHTML = endereco;
+        })
+        .catch(error => {
+        alert(error.message);
+        });
+    });
+</script>
+</body>
+</html>
